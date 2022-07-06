@@ -1,0 +1,261 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+
+
+
+<script type="text/javascript">
+
+var text;
+var text2
+var temp;
+var temp2;
+var c;
+function main(num) 
+{
+   
+    if (temp2 == '.' && num=='.') {
+
+        text2=document.getElementById("tb2").value;
+    
+    document.getElementById("tb2").value= text2 ;
+
+    } else {
+     temp2 = num;
+    text2=document.getElementById("tb2").value;
+    
+    document.getElementById("tb2").value= text2+num ;
+    
+
+    if (temp==null) {
+        temp = String(num);
+
+    }
+    else { 
+     temp=temp+num
+    
+    }
+   
+    
+    
+    }
+    
+
+}
+
+function calculate(tempc) { 
+    
+    text = document.getElementById("tb1");
+    textv=document.getElementById("tb1").value;
+    text2v=document.getElementById("tb2").value;
+
+    let num1 = parseFloat(textv);
+    let num2 = parseFloat(temp);
+    var total;
+    
+    if (tempc=="clear") {
+    
+        clear();
+    
+    } else if (tempc=='=') { 
+    
+        console.log("=");
+        if (c == '+') { 
+                              total = num1 + num2; 
+            text.innerText = String(total);    
+        document.getElementById("tb2").value=null;}
+        else if (c=='-') {    total = num1 - num2; 
+            text.innerText = String(total);    
+        document.getElementById("tb2").value =null;}
+        else if (c=='*') {     total = num1 * num2; 
+            text.innerText = String(total);    
+        document.getElementById("tb2").value = null;}
+        else if (c=='/') {       total = num1 / num2; 
+            text.innerText = String(total);      
+        document.getElementById("tb2").value = null;}
+    
+         
+    } else { 
+    
+    if (c == null) {
+       
+        c = tempc;
+
+    }
+    else { 
+    
+       
+    
+    }
+   
+
+
+
+
+    if (c == '+') {
+
+      
+        if (textv == null) {
+
+            f1(tempc);
+
+        }
+        else {
+
+            total = num1 + num2;
+            f2(total, tempc);
+        }
+
+
+    }
+    else if (c == '-') {
+       
+        if (textv == null) {
+
+            f1(tempc);
+
+        }
+        else {
+
+            total = num1 - num2;
+            f2(total, tempc);
+        }
+    }
+    else if (c == '*') {
+      
+        if (textv == null) {
+
+            f1(tempc);
+
+        }
+        else {
+
+            total = num1 * num2;
+            f2(total, tempc);
+        }
+    }
+    else if (c == '/') {
+        
+        if (textv == null) {
+
+            f1(tempc);
+
+        }
+        else {
+
+            total = num1 / num2;
+            f2(total, tempc);
+        }
+    }
+    
+   
+    
+    else { }
+    
+    
+    }
+
+
+}
+
+function f1(tempc) {
+
+     
+            document.getElementById("tb1").value = text2v;
+            text.innerText=text2v;
+            document.getElementById("tb2").value = text2v + tempc;
+            temp = "";
+            c = tempc;
+}
+function f2(t,tempc) {
+
+            
+            textv=String(t)
+            document.getElementById("tb1").value = textv;
+            text.innerText=textv;
+            
+            document.getElementById("tb2").value = text2v + tempc;
+            temp = "";
+            c = tempc;
+
+}
+function clear() {
+        console.log("clear");
+        temp = ""
+        document.getElementById("tb1").value = null;
+        document.getElementById("tb2").value = null;
+        text.innerText = "";
+        c = null;
+        console.log("clear2");
+        temp2 = "";
+}
+
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="  border bg-light" style="width:280px;">
+    <div class="container">
+        <h1 class="m-1">Calculator</h1>
+    </div>
+   
+     
+     <label class="m-3 text-primary" type="text" value="" name="tb1" id="tb1" /></label>
+     
+     <br>
+     <input class="m-3" type="text"  name="tb2" id="tb2" style="width:235px" />
+     
+<div class="m-2">
+
+    <div>
+          <button class=" btn-primary  m-1 btn-lg" name="cal"  value="1"   type="submit"  id="cal" style="width:50px" onclick="main(1)">1</button>
+          <button class=" btn-primary  m-1 btn-lg" name="cal"  value="2"   type="submit"  id="cal" style="width:50px" onclick="main(2)">2</button>
+          <button class=" btn-primary  m-1 btn-lg" name="cal"  value="3"   type="submit"  id="1" style="width:50px" onclick="main(3)">3</button>
+          <button class=" btn-primary  m-1 btn-lg" name="cal"  value="+"   type="submit"  id="1" style="width:50px" onclick="calculate('+')">+</button>
+
+          <br>
+          <button class=" btn-primary  m-1 btn-lg" name="cal"  value="4"   type="submit"  id="1" style="width:50px" onclick="main(4)">4</button>
+          <button class=" btn-primary  m-1 btn-lg" name="cal"  value="5"   type="submit"  id="1" style="width:50px" onclick="main(5)">5</button>
+          <button class=" btn-primary  m-1 btn-lg" name="cal"  value="6"   type="submit"  id="1" style="width:50px" onclick="main(6)">6</button>
+          <button class="btn-primary  m-1 btn-lg" name="cal"  value="-"    type="submit"  id="1" style="width:50px" onclick="calculate('-')">-</button>
+
+          <br>
+          <button class=" btn-primary  m-1 btn-lg" name="cal"  value="7"   type="submit"  id="1" style="width:50px" onclick="main(7)">7</button>
+          <button class=" btn-primary  m-1 btn-lg" name="cal"  value="8"   type="submit"  id="1" style="width:50px" onclick="main(8)">8</button>
+          <button class=" btn-primary  m-1 btn-lg" name="cal"  value="9"   type="submit"  id="1" style="width:50px" onclick="main(9)">9</button>
+          <button class=" btn-primary  m-1 btn-lg" name="cal"  value="*"   type="submit"  id="1" style="width:50px" onclick="calculate('*')">*</button>
+          <br>
+          <button class=" btn-primary  m-1 btn-lg" name="cal"  value="0"   type="submit"  id="1" style="width:112px" onclick="main(0)">0</button>
+          <button class=" btn-primary  m-1 btn-lg" name="cal"  value="."   type="submit"  id="1" style="width:50px" onclick="main('.')">.</button>
+          
+         
+          <button class=" btn-primary  m-1 btn-lg" name="cal"  value="/"   type="submit"  id="1" style="width:50px" onclick="calculate('/')">/</button>
+          
+          <br>
+          
+           <button class=" btn-primary  m-1 btn-lg" name="cal"  value="="   type="submit"  id="1" style="width:112px" onclick="calculate('=')">=</button>
+          <button class=" btn-primary  m-1 btn-lg " name="cal"  value="clear"   type="submit"  id="1" style="width:112px " onclick="calculate('clear')">c</button>
+    </div>
+
+    
+
+
+
+
+</div>
+     
+ </div>   
